@@ -7,5 +7,9 @@
             "Hexlet\\Code\\": "src/"
         }
     },
-    "require": {}
+    "license": "0BSD",
+    "require": {},
+    "bin": [
+      "bin/brain-games"
+    ]
 }
