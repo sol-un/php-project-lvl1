@@ -1,14 +1,19 @@
 {
     "name": "hexlet/code",
-    "description": "Brain Games, a beginner-level PHP pet-project",
+    "description": "Brain Games, a beginner-level PHP pet project",
     "type": "project",
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
-        }
+        },
+        "files": [
+          "src/Cli.php"
+        ]
     },
     "license": "0BSD",
-    "require": {},
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.13"
+    },
     "bin": [
       "bin/brain-games"
     ]
