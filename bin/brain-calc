@@ -1,0 +1,60 @@
+#!/usr/bin/env php
+
+<?php
+
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+use function Brain\Games\Engine\playGame;
+use function cli\line;
+use function cli\prompt;
+
+const OPERATORS = ['+', '-', '*'];
+
+/**
+ * @throws Exception
+ */
+function solveProblem (string $problem): int
+{
+  [$operand1, $operator, $operand2] = explode(' ', $problem);
+  switch ($operator) {
+      case '+':
+        return $operand1 + $operand2;
+      case '-':
+        return $operand1 - $operand2;
+      case '*':
+        return $operand1 * $operand2;
+      default:
+        throw new Exception("Unknown operator: {$operator}");
+  }
+}
+
+function generateProblem (): string
+{
+    $operand1 = rand(1, 100);
+    $operand2 = rand(1, 100);
+    $operator = OPERATORS[array_rand(OPERATORS)];
+    return "{$operand1} {$operator} {$operand2}";
+}
+
+/**
+ * @throws Exception
+ */
+$playRound = function (): array
+{
+    $problem = generateProblem();
+    line("Question: %s", $problem);
+    $playerAnswer = (int) prompt("Your answer");
+    $rightAnswer = solveProblem($problem);
+    return [$playerAnswer, $rightAnswer];
+};
+
+$description = 'Solve the problems provided.';
+
+playGame($description, $playRound);

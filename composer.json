@@ -7,7 +7,8 @@
             "Hexlet\\Code\\": "src/"
         },
         "files": [
-          "src/Cli.php"
+          "src/Engine.php",
+          "src/Games/brain-even.php"
         ]
     },
     "license": "0BSD",
@@ -17,6 +18,7 @@
     },
     "bin": [
       "bin/brain-games",
-      "bin/brain-even"
+      "bin/brain-even",
+      "bin/brain-calc"
     ]
 }
