@@ -11,40 +11,9 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Cli\startGame;
-use function cli\line;
-use function cli\prompt;
 
-const ROUNDS_COUNT = 3;
+use function Brain\Games\Cli\playGame;
+use function Brain\Games\Games\Brain\Even\playRound;
+use const Brain\Games\Games\Brain\Even\DESCRIPTION;
 
-function isEven (int $num): bool
-{
-    return $num % 2 === 0;
-}
-
-function playRound (int $num): array
-{
-    line("Question: %d", $num);
-    $playerAnswer = prompt("Your answer");
-    $rightAnswer = isEven($num) ? 'yes' : 'no';
-    return [$playerAnswer, $rightAnswer];
-}
-
-function playGame (): void
-{
-    $name = startGame();
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
-        $num = rand(1, 100);
-        [$playerAnswer, $rightAnswer] = playRound($num);
-        if ($playerAnswer !== $rightAnswer) {
-            line("The answer '%s' is wrong :( The correct answer is '%s'.", $playerAnswer, $rightAnswer);
-            line("Let's try again, %s!", $name);
-            return;
-        }
-        line("Correct!");
-    }
-    line("Congratulations, %s!", $name);
-}
-
-playGame();
+playGame(playRound(), DESCRIPTION);
