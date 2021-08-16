@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Cli;
+namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
@@ -15,7 +15,7 @@ function playGame($playRound, $description)
     line($description);
     for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
         [$playerAnswer, $rightAnswer] = $playRound();
-        if ($playerAnswer !== $rightAnswer) {
+        if ($playerAnswer !== (string) $rightAnswer) {
             line("The answer '%s' is wrong :( The correct answer is '%s'.", $playerAnswer, $rightAnswer);
             line("Let's try again, %s!", $name);
             return;
