@@ -11,6 +11,10 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Cli\interact;
 
-interact();
+use function Brain\Games\Engine\playGame;
+use function Brain\Games\Games\Brain\Prime\playRound;
+use const Brain\Games\Games\Brain\Prime\DESCRIPTION;
+
+playGame(playRound(), DESCRIPTION);
+
