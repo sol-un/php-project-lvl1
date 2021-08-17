@@ -8,27 +8,33 @@ use function cli\prompt;
 
 const DESCRIPTION = 'Find the number missing from a progression.';
 
-function solveProblem ($problem): int
+function generateProgression ($firstElement, $increment, $cardinality = 10): array
 {
-    [$num1, $num2] = explode(' ', $problem);
-    return gcd($num1, $num2);
+  $progression = [];
+  for ($i = 0; $i < $cardinality; $i += 1) {
+    $element = $firstElement + $increment * $i;
+    $progression[] = $element;
+  }
+  return $progression;
 }
 
-function generateProblem ($numbers): string
+function generateProblem ($progression, $hiddenIndex): string
 {
-    $numbersCopy = array(...$numbers);
-    $hiddenIndex = array_rand($numbersCopy);
-    $numbersCopy[$hiddenIndex] = '..';
-    return implode(' ', $numbersCopy);
+  $result = $progression;
+  $result[$hiddenIndex] = '..';
+  return implode(' ', $result);
 }
 
 function playRound (): callable
 {
     return function () {
-        $problem = generateProblem($numbers);
-        line("Question: %s", $problem);
-        $playerAnswer = (int) prompt("Your answer");
-        $rightAnswer = solveProblem($problem);
-        return [$playerAnswer, $rightAnswer];
+        $firstElement = rand(1, 100);
+        $increment = rand(1, 10);
+        $progression = generateProgression($firstElement, $increment);
+        $hiddenIndex = rand(0, count($progression) - 1);
+
+        $problem = generateProblem($progression, $hiddenIndex);
+        $rightAnswer = $progression[$hiddenIndex];
+        return [$problem, $rightAnswer];
     };
 }

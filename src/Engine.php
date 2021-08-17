@@ -11,13 +11,15 @@ function playGame($playRound, $description)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    line("Hello, {$name}!");
     line($description);
     for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
-        [$playerAnswer, $rightAnswer] = $playRound();
+        [$problem, $rightAnswer] = $playRound();
+        line("Question: {$problem}");
+        $playerAnswer = prompt("Your answer");
         if ($playerAnswer !== (string) $rightAnswer) {
-            line("The answer '%s' is wrong :( The correct answer is '%s'.", $playerAnswer, $rightAnswer);
-            line("Let's try again, %s!", $name);
+            line("The answer '{$playerAnswer}' is wrong :( The correct answer is '{$rightAnswer}'.");
+            line("Let's try again, {$name}!");
             return;
         }
         line("Correct!");

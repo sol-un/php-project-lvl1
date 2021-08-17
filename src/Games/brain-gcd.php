@@ -30,9 +30,7 @@ function playRound (): callable
 {
     return function () {
         $problem = generateProblem();
-        line("Question: %s", $problem);
-        $playerAnswer = prompt("Your answer");
         $rightAnswer = solveProblem($problem);
-        return [$playerAnswer, $rightAnswer];
+        return [$problem, $rightAnswer];
     };
 }
