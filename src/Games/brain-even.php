@@ -4,12 +4,12 @@ namespace Brain\Games\Games\Brain\Even;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function isEven (int $num): bool
+function isEven(int $num): bool
 {
     return $num % 2 === 0;
 }
 
-function playRound (): callable
+function playRound(): callable
 {
     return function () {
         $num = rand(1, 100);

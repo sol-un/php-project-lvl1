@@ -3,29 +3,30 @@
 namespace Brain\Games\Games\Brain\Progression;
 
 use Exception;
+
 use function cli\line;
 use function cli\prompt;
 
 const DESCRIPTION = 'Find the number missing from a progression.';
 
-function generateProgression ($firstElement, $increment, $cardinality = 10): array
+function generateProgression($firstElement, $increment, $cardinality = 10): array
 {
-  $progression = [];
-  for ($i = 0; $i < $cardinality; $i += 1) {
-    $element = $firstElement + $increment * $i;
-    $progression[] = $element;
-  }
-  return $progression;
+    $progression = [];
+    for ($i = 0; $i < $cardinality; $i += 1) {
+        $element = $firstElement + $increment * $i;
+        $progression[] = $element;
+    }
+    return $progression;
 }
 
-function generateProblem ($progression, $hiddenIndex): string
+function generateProblem($progression, $hiddenIndex): string
 {
-  $result = $progression;
-  $result[$hiddenIndex] = '..';
-  return implode(' ', $result);
+    $result = $progression;
+    $result[$hiddenIndex] = '..';
+    return implode(' ', $result);
 }
 
-function playRound (): callable
+function playRound(): callable
 {
     return function () {
         $firstElement = rand(1, 100);

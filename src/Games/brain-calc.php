@@ -3,6 +3,7 @@
 namespace Brain\Games\Games\Brain\Calc;
 
 use Exception;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -12,7 +13,7 @@ const OPERATORS = ['+', '-', '*'];
 /**
  * @throws Exception
  */
-function solveProblem ($problem): int
+function solveProblem($problem): int
 {
     [$operand1, $operator, $operand2] = explode(' ', $problem);
     switch ($operator) {
@@ -27,7 +28,7 @@ function solveProblem ($problem): int
     }
 }
 
-function generateProblem (): string
+function generateProblem(): string
 {
         $operand1 = rand(1, 100);
         $operand2 = rand(1, 100);
@@ -35,7 +36,7 @@ function generateProblem (): string
         return "{$operand1} {$operator} {$operand2}";
 }
 
-function playRound (): callable
+function playRound(): callable
 {
     return function () {
         $problem = generateProblem();
