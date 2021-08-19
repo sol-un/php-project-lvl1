@@ -2,11 +2,6 @@
 
 namespace Brain\Games\Games\Brain\Progression;
 
-use Exception;
-
-use function cli\line;
-use function cli\prompt;
-
 const DESCRIPTION = 'Find the number missing from a progression.';
 
 function generateProgression($firstElement, $increment, $cardinality = 10): array

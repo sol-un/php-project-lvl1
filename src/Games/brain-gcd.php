@@ -2,11 +2,6 @@
 
 namespace Brain\Games\Games\Brain\Gcd;
 
-use Exception;
-
-use function cli\line;
-use function cli\prompt;
-
 const DESCRIPTION = 'Find the greatest common divisor of the numbers provided.';
 
 function gcd($num1, $num2): int

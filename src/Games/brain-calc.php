@@ -4,9 +4,6 @@ namespace Brain\Games\Games\Brain\Calc;
 
 use Exception;
 
-use function cli\line;
-use function cli\prompt;
-
 const DESCRIPTION = 'Solve the expressions provided.';
 const OPERATORS = ['+', '-', '*'];
 
