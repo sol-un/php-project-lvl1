@@ -8,6 +8,7 @@
     },
     "files": [
       "src/Engine.php",
+      "src/brain-games.php",
       "src/Games/brain-even.php",
       "src/Games/brain-calc.php",
       "src/Games/brain-gcd.php",
