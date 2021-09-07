@@ -4,7 +4,7 @@ namespace Brain\Games\Games\Brain\Progression;
 
 const DESCRIPTION = 'Find the number missing from a progression.';
 
-function generateProgression($firstElement, $increment, $cardinality = 10): array
+function generateProgression(int $firstElement, int $increment, int $cardinality = 10): array
 {
     $progression = [];
     for ($i = 0; $i < $cardinality; $i += 1) {
@@ -14,7 +14,7 @@ function generateProgression($firstElement, $increment, $cardinality = 10): arra
     return $progression;
 }
 
-function generateProblem($progression, $hiddenIndex): string
+function generateProblem(array $progression, int $hiddenIndex): string
 {
     $result = $progression;
     $result[$hiddenIndex] = '..';
@@ -23,7 +23,7 @@ function generateProblem($progression, $hiddenIndex): string
 
 function playRound(): callable
 {
-    return function () {
+    return function (): array {
         $firstElement = rand(1, 100);
         $increment = rand(1, 10);
         $progression = generateProgression($firstElement, $increment);

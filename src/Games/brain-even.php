@@ -11,7 +11,7 @@ function isEven(int $num): bool
 
 function playRound(): callable
 {
-    return function () {
+    return function (): array {
         $num = rand(1, 100);
         $rightAnswer = isEven($num) ? 'yes' : 'no';
         return [$num, $rightAnswer];

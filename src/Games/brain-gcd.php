@@ -4,15 +4,15 @@ namespace Brain\Games\Games\Brain\Gcd;
 
 const DESCRIPTION = 'Find the greatest common divisor of the numbers provided.';
 
-function gcd($num1, $num2): int
+function gcd(int $num1, int $num2): int
 {
-    return ($num1 % $num2) ? gcd($num2, $num1 % $num2) : $num2;
+    return (bool) ($num1 % $num2) ? gcd($num2, $num1 % $num2) : $num2;
 }
 
-function solveProblem($problem): int
+function solveProblem(string $problem): int
 {
     [$num1, $num2] = explode(' ', $problem);
-    return gcd($num1, $num2);
+    return gcd((int) $num1, (int) $num2);
 }
 
 function generateProblem(): string
@@ -24,7 +24,7 @@ function generateProblem(): string
 
 function playRound(): callable
 {
-    return function () {
+    return function (): array {
         $problem = generateProblem();
         $rightAnswer = solveProblem($problem);
         return [$problem, $rightAnswer];

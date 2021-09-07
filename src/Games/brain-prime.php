@@ -20,7 +20,7 @@ function isPrime(int $num): bool
 
 function playRound(): callable
 {
-    return function () {
+    return function (): array {
         $num = rand(1, 100);
         $rightAnswer = isPrime($num) ? 'yes' : 'no';
         return [$num, $rightAnswer];

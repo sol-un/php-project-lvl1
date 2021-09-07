@@ -2,7 +2,12 @@
 
 namespace Brain\Games\Brain\Games;
 
-function greet()
+use function cli\line;
+use function cli\prompt;
+
+function greet(): void
 {
-  print_r('Welcome to the Brain Games!');
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
 }

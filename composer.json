@@ -23,6 +23,10 @@
   },
   "bin": [
     "bin/brain-games",
-    "bin/brain-even"
+    "bin/brain-even",
+    "bin/brain-gcd",
+    "bin/brain-calc",
+    "bin/brain-progression",
+    "bin/brain-prime"
   ]
 }
