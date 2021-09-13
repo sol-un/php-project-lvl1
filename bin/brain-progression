@@ -13,8 +13,8 @@ if (file_exists($autoloadPath1)) {
 
 
 use function Brain\Games\Engine\playGame;
-use function Brain\Games\Games\Brain\Progression\playRound;
+use function Brain\Games\Games\Brain\Progression\generateGameData;
 use const Brain\Games\Games\Brain\Progression\DESCRIPTION;
 
-playGame(playRound(), DESCRIPTION);
+playGame(generateGameData(), DESCRIPTION);
 

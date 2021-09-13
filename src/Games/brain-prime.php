@@ -2,6 +2,8 @@
 
 namespace Brain\Games\Games\Brain\Prime;
 
+use const Brain\Games\Engine\ROUNDS_COUNT;
+
 const DESCRIPTION = 'Answer "yes" if the number is prime, otherwise answer "no".';
 
 function isPrime(int $num): bool
@@ -18,11 +20,15 @@ function isPrime(int $num): bool
     return true;
 }
 
-function playRound(): callable
+function generateGameData(): callable
 {
     return function (): array {
+      $gameData = [];
+      for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
         $num = rand(1, 100);
         $rightAnswer = isPrime($num) ? 'yes' : 'no';
-        return [$num, $rightAnswer];
+        $gameData[] = [$num, $rightAnswer];
+      }
+      return $gameData;
     };
 }

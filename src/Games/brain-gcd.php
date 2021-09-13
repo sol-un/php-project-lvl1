@@ -2,6 +2,8 @@
 
 namespace Brain\Games\Games\Brain\Gcd;
 
+use const Brain\Games\Engine\ROUNDS_COUNT;
+
 const DESCRIPTION = 'Find the greatest common divisor of the numbers provided.';
 
 function gcd(int $num1, int $num2): int
@@ -22,11 +24,15 @@ function generateProblem(): string
     return "{$num1} {$num2}";
 }
 
-function playRound(): callable
+function generateGameData(): callable
 {
     return function (): array {
+      $gameData = [];
+      for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
         $problem = generateProblem();
         $rightAnswer = solveProblem($problem);
-        return [$problem, $rightAnswer];
+        $gameData[] = [$problem, $rightAnswer];
+      }
+      return $gameData;
     };
 }

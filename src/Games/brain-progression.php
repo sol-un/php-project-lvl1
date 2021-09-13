@@ -2,6 +2,8 @@
 
 namespace Brain\Games\Games\Brain\Progression;
 
+use const Brain\Games\Engine\ROUNDS_COUNT;
+
 const DESCRIPTION = 'Find the number missing from a progression.';
 
 function generateProgression(int $firstElement, int $increment, int $cardinality = 10): array
@@ -21,9 +23,11 @@ function generateProblem(array $progression, int $hiddenIndex): string
     return implode(' ', $result);
 }
 
-function playRound(): callable
+function generateGameData(): callable
 {
     return function (): array {
+      $gameData = [];
+      for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
         $firstElement = rand(1, 100);
         $increment = rand(1, 10);
         $progression = generateProgression($firstElement, $increment);
@@ -31,6 +35,8 @@ function playRound(): callable
 
         $problem = generateProblem($progression, $hiddenIndex);
         $rightAnswer = $progression[$hiddenIndex];
-        return [$problem, $rightAnswer];
+        $gameData[] = [$problem, $rightAnswer];
+      }
+      return $gameData;
     };
 }
