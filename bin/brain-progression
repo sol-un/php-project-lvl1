@@ -12,6 +12,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function Brain\Games\Games\Brain\Progression\playBrainProgression;
+use function Brain\Games\Games\Progression\playBrainProgression;
 
 playBrainProgression();

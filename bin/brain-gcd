@@ -12,6 +12,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function Brain\Games\Games\Brain\Gcd\playBrainGcd;
+use function Brain\Games\Games\Gcd\playBrainGcd;
 
 playBrainGcd();

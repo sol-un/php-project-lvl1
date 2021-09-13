@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Games\Brain\Even;
+namespace Brain\Games\Games\Even;
 
 use function Brain\Games\Engine\playGame;
 use const Brain\Games\Engine\ROUNDS_COUNT;

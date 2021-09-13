@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Games\Brain\Progression;
+namespace Brain\Games\Games\Progression;
 
 use function Brain\Games\Engine\playGame;
 use const Brain\Games\Engine\ROUNDS_COUNT;
