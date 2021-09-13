@@ -3,6 +3,7 @@
 namespace Brain\Games\Games\Brain\Calc;
 
 use Exception;
+use function Brain\Games\Engine\playGame;
 use const Brain\Games\Engine\ROUNDS_COUNT;
 
 const DESCRIPTION = 'Solve the expressions provided.';
@@ -34,15 +35,18 @@ function generateProblem(): string
         return "{$operand1} {$operator} {$operand2}";
 }
 
-function generateGameData(): callable
+function generateGameData(): array
 {
-    return function (): array {
-      $gameData = [];
-      for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
-        $problem = generateProblem();
-        $rightAnswer = solveProblem($problem);
-        $gameData[] = [$problem, $rightAnswer];
-      }
-      return $gameData;
-    };
+  $gameData = [];
+  for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
+    $problem = generateProblem();
+    $rightAnswer = solveProblem($problem);
+    $gameData[] = [$problem, $rightAnswer];
+  }
+  return $gameData;
+}
+
+function playBrainCalc(): void
+{
+  playGame(generateGameData(), DESCRIPTION);
 }

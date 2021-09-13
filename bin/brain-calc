@@ -12,9 +12,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function Brain\Games\Engine\playGame;
-use function Brain\Games\Games\Brain\Calc\generateGameData;
-use const Brain\Games\Games\Brain\Calc\DESCRIPTION;
+use function Brain\Games\Games\Brain\Calc\playBrainCalc;
 
-playGame(generateGameData(), DESCRIPTION);
-
+playBrainCalc();

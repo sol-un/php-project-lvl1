@@ -12,8 +12,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function Brain\Games\Engine\playGame;
-use function Brain\Games\Games\Brain\Even\generateGameData;
-use const Brain\Games\Games\Brain\Even\DESCRIPTION;
+use function Brain\Games\Games\Brain\Even\playBrainEven;
 
-playGame(generateGameData(), DESCRIPTION);
+playBrainEven();
