@@ -23,7 +23,7 @@ function playGame(array $gameData, string $description): void
             return;
         }
         line("Correct!");
-      }
-      line("Congratulations, %s!", $name);
-      return;
+    }
+    line("Congratulations, %s!", $name);
+    return;
 }
