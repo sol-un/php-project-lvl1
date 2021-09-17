@@ -12,6 +12,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function Brain\Games\Games\Prime\playBrainPrime;
+use function Brain\Games\Games\Prime\playPrime;
 
-playBrainPrime();
+playPrime();

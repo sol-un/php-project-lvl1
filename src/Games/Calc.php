@@ -4,7 +4,7 @@ namespace Brain\Games\Games\Calc;
 
 use Exception;
 
-use function Brain\Games\Engine\playGame;
+use function Brain\Games\Engine\run;
 
 use const Brain\Games\Engine\ROUNDS_COUNT;
 
@@ -48,7 +48,7 @@ function generateGameData(): array
     return $gameData;
 }
 
-function playBrainCalc(): void
+function playCalc(): void
 {
-    playGame(generateGameData(), DESCRIPTION);
+    run(generateGameData(), DESCRIPTION);
 }
