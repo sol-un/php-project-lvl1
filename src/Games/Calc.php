@@ -14,36 +14,29 @@ const OPERATORS = ['+', '-', '*'];
 /**
  * @throws Exception
  */
-function calculate(string $expression): int
+function calculate(int $operand1, int $operand2, string $operator): int
 {
-    [$operand1, $operator, $operand2] = explode(' ', $expression);
     switch ($operator) {
         case '+':
-            return (int) $operand1 + (int) $operand2;
+            return $operand1 + $operand2;
         case '-':
-            return (int) $operand1 - (int) $operand2;
+            return $operand1 - $operand2;
         case '*':
-            return (int) $operand1 * (int) $operand2;
+            return $operand1 * $operand2;
         default:
             throw new Exception("Unknown operator: {$operator}");
     }
-}
-
-function generateExpression(): string
-{
-        $operand1 = rand(1, 100);
-        $operand2 = rand(1, 100);
-        $operator = OPERATORS[array_rand(OPERATORS)];
-        return "{$operand1} {$operator} {$operand2}";
 }
 
 function generateGameData(): array
 {
     $gameData = [];
     for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
-        $expression = generateExpression();
-        $rightAnswer = calculate($expression);
-        $gameData[] = [$expression, $rightAnswer];
+        $operand1 = rand(1, 100);
+        $operand2 = rand(1, 100);
+        $operator = OPERATORS[array_rand(OPERATORS)];
+        $rightAnswer = calculate($operand1, $operand2, $operator);
+        $gameData[] = ["{$operand1} {$operator} {$operand2}", $rightAnswer];
     }
     return $gameData;
 }
