@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Progression;
 
-use function Brain\Games\Engine\playGame;
+use function Brain\Games\Engine\run;
 
 use const Brain\Games\Engine\ROUNDS_COUNT;
 
@@ -41,7 +41,7 @@ function generateGameData(): array
     return $gameData;
 }
 
-function playBrainProgression(): void
+function playProgression(): void
 {
-    playGame(generateGameData(), DESCRIPTION);
+    run(generateGameData(), DESCRIPTION);
 }

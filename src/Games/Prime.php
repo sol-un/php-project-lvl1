@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Prime;
 
-use function Brain\Games\Engine\playGame;
+use function Brain\Games\Engine\run;
 
 use const Brain\Games\Engine\ROUNDS_COUNT;
 
@@ -33,7 +33,7 @@ function generateGameData(): array
     return $gameData;
 }
 
-function playBrainPrime(): void
+function playPrime(): void
 {
-    playGame(generateGameData(), DESCRIPTION);
+    run(generateGameData(), DESCRIPTION);
 }
