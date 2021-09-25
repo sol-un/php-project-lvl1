@@ -12,6 +12,6 @@ require_once $autoloadPath1;
 }
 
 
-use function Brain\Games\Brain\Games\greet;
+use function Brain\Games\Cli\greet;
 
 greet();
