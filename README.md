@@ -1,6 +1,6 @@
 <a href="https://codeclimate.com/github/sol-un/backend-project-lvl1-Brain-Games/maintainability"><img src="https://api.codeclimate.com/v1/badges/2f1607d7ba1873ccac8e/maintainability" /></a>
-![PHP CI Status](https://github.com/sol-un/php-project-lvl1/actions/workflows/workflow.yml/badge.svg)
-![hexlet-check](https://github.com/sol-un/php-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)
+[![PHP CI Status](https://github.com/sol-un/php-project-lvl1/actions/workflows/workflow.yml/badge.svg)](https://github.com/sol-un/php-project-lvl1/actions/workflows/workflow.yml)
+[![hexlet-check](https://github.com/sol-un/php-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sol-un/php-project-lvl1/actions/workflows/hexlet-check.yml)
 
 # Brain Games
 
