@@ -12,6 +12,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function Brain\Games\Games\Calc\playBrainCalc;
+use function Brain\Games\Games\Calc\playCalc;
 
-playBrainCalc();
+playCalc();
