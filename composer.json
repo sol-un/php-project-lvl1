@@ -3,9 +3,6 @@
   "description": "Brain Games, a beginner-level PHP pet project",
   "type": "project",
   "autoload": {
-    "psr-4": {
-      "Hexlet\\Code\\": "src/"
-    },
     "files": [
       "src/Engine.php",
       "src/brain-games.php",

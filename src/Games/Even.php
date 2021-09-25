@@ -17,9 +17,9 @@ function generateGameData(): array
 {
     $gameData = [];
     for ($i = ROUNDS_COUNT; $i > 0; $i -= 1) {
-        $num = rand(1, 100);
-        $rightAnswer = isEven($num) ? 'yes' : 'no';
-        $gameData[] = [$num, $rightAnswer];
+        $question = rand(1, 100);
+        $rightAnswer = isEven($question) ? 'yes' : 'no';
+        $gameData[] = [$question, $rightAnswer];
     }
     return $gameData;
 }
